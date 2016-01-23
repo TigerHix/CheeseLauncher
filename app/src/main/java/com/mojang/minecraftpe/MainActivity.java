@@ -98,20 +98,20 @@ public class MainActivity extends NativeActivity {
             mMCPENativeLibraryDirectory = nativeLibraryDir;
 
             // Load all libraries.
-            Log.i("CheeseLoader", "Loading CheeseLauncher native library...");
-            System.loadLibrary("cheeselauncher");
             Log.i("CheeseLoader", "Loading Minecraft: Pocket Edition libraries...");
             System.load(nativeLibraryDir + "/libgnustl_shared.so");
             System.load(nativeLibraryDir + "/libfmod.so");
             System.load(nativeLibraryDir + "/libminecraftpe.so");
+            Log.i("CheeseLoader", "Loading CheeseLauncher native library...");
+            System.loadLibrary("cheeselauncher");
             Log.i("CheeseLoader", "Initializing Java-side of FMOD.");
+            FMOD.init(this);
         } catch (PackageManager.NameNotFoundException e) {
             errorOccurred("Looks like you don't have MCPE installed.");
         } catch (UnsatisfiedLinkError ule) {
             errorOccurred("An unsatisfied link error has occurred: " + ule.getMessage());
         }
 
-        FMOD.init(this);
         setVolumeControlStream(3);
 
         // Masquerade to load some things properly.
