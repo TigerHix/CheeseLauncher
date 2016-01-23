@@ -6,3 +6,6 @@ build/
 
 # Ignore idea
 .idea/
+
+# Local files
+local.properties
