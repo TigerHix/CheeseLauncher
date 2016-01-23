@@ -339,7 +339,7 @@ public class MainActivity extends NativeActivity {
 
     public String getDeviceModel() {
         // TODO: Implement.
-//        return HardwareInformation.getDeviceModelName();
+        // return HardwareInformation.getDeviceModelName();
         return "FakeDevice";
     }
 
@@ -347,8 +347,6 @@ public class MainActivity extends NativeActivity {
         return Environment.getExternalStorageDirectory().getAbsolutePath();
     }
 
-    // Note: This method is actually a lot longer in MC:PE,
-    // but Apache Commons IO lets us shorten it down to 5.
     public byte[] getFileDataBytes(String path) {
         byte[] returning;
         try {
