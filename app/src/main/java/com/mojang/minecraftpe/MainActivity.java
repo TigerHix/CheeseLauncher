@@ -605,8 +605,6 @@ public class MainActivity extends NativeActivity {
     }
 
     public void showKeyboard(String startText, int fMaxLength, boolean fLimitInput, boolean fNumbersOnly) {
-        // Seems to just call setupKeyboardViews.
-        // TODO: Implement.
     }
 
     public void statsTrackEvent(String s, String s1) {
