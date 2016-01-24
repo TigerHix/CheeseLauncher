@@ -6,8 +6,9 @@
 #include <string.h>
 #include <jni.h>
 #include <android/log.h>
+#include <dlfcn.h>
 
-#include "Substrate.h"
+#include "substrate.h"
 #include "cheeselauncher_structs.h"
 
 #define LOG_TAG "CheeseLauncherNative"
@@ -15,22 +16,22 @@
 
 static JavaVM* java_vm;
 
-bool hasLocalFlyHackEnabled = false;
-bool hasSniperFovViewEnabled = false;
+int hasLocalFlyHackEnabled = 0;
+int hasSniperFovViewEnabled =0;
 
-static float (*LocalPlayer$getFOVModifier_real)(Player*);
-static float LocalPlayer$getFOVModifier_hook(Player* localplayer) {
-	if (hasSniperFovViewEnabled) {
+static float (*LocalPlayer$getFOVModifier_real)(void*);
+static float LocalPlayer$getFOVModifier_hook(void* localplayer) {
+	if (hasSniperFovViewEnabled == 0) {
 		return 10.0F;
 	}
 	else {
 		LOGI("Default Field of View Modifier: %d", LocalPlayer$getFOVModifier_real(localplayer));
-		return LocalPlayer$getFOVModifier_real(localplayer)
+		return LocalPlayer$getFOVModifier_real(localplayer);
 	}
 }
 
-static void (*LocalPlayer$normalTick_real)(Player*);
-static void LocalPlayer$normalTick_hook(Player* localplayer) {
+static void (*LocalPlayer$normalTick_real)(void*);
+static void LocalPlayer$normalTick_hook(void* localplayer) {
 	if (hasLocalFlyHackEnabled) {
 		// TODO: Enable flyhack and do
 		// Level::isClientSide to
@@ -55,6 +56,6 @@ jint JNI_OnLoad(JavaVM* vm, void* what) {
 	MSHookFunction(LocalPlayer$normalTick, (void*) &LocalPlayer$normalTick_hook, (void**) &LocalPlayer$normalTick_real);
 	
 	/* <===== Functions =====> */
-	Level$getAdventureSettings = (AdventureSettings(*)(void*)) dlsym(RTLD_DEFAULT, "_ZN5Level20getAdventureSettingsEv");
+	void* Level$getAdventureSettings = (AdventureSettings(*)(void*)) dlsym(RTLD_DEFAULT, "_ZN5Level20getAdventureSettingsEv");
     return JNI_VERSION_1_6;
 }

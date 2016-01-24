@@ -1,7 +1,7 @@
 #pragma once
 
-class Player;
+typedef struct Player;
 
-struct AdventureSettings {
+typedef struct AdventureSettings_t {
 	
-};
+} AdventureSettings;
