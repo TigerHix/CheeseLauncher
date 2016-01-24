@@ -39,5 +39,5 @@ dependencies {
     compile 'com.android.support:support-v4:23.1.1'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'commons-io:commons-io:2.4'
-    compile files('/home/cheesy/code/projects/cheeselauncher/libs/fmod.jar')
+    compile files('../libs/fmod.jar')
 }
