@@ -606,7 +606,8 @@ public class MainActivity extends NativeActivity {
 
     public void showKeyboard(String startText, int fMaxLength, boolean fLimitInput, boolean fNumbersOnly) {
         // Seems to just call setupKeyboardViews.
-        // TODO: Implement.
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+		imm.showSoftInput(getWindow().getDecorView(), InputMethodManager.SHOW_FORCED);
     }
 
     public void statsTrackEvent(String s, String s1) {
