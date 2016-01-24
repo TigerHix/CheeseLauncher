@@ -86,6 +86,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/jni" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/renderscript" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/arm7Debug" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/arm7Release" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/armRelease" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/assets" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/binaries" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
