@@ -27,4 +27,6 @@ This program uses:
 - Cydia Substrate by Saurik
 - Gradle
 - FMOD
+- @KsyMC's headers
+- RakNet
 
