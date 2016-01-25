@@ -14,7 +14,12 @@ model {
     android.ndk {
         moduleName = "cheeselauncher"
         cppFlags.add("-frtti")
+        cppFlags += "-std=c++11"
+        cppFlags += "-I${file("src/main/jni/")}".toString()
+        ldFlags += "-L${file("src/main/jniLibs/armeabi-v7a")}".toString()
         ldLibs.add("log")
+        ldLibs.add("genericlauncher_tinysubstrate")
+        ldLibs.add("minecraftpe")
         stl = "gnustl_shared"
     }
 

@@ -56,6 +56,7 @@ extern "C" {
 extern "C" {
 #endif
 
+#include <stdbool.h> // Added so booleans work
 bool MSHookProcess(pid_t pid, const char *library);
 
 typedef const void *MSImageRef;

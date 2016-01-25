@@ -9,3 +9,6 @@ build/
 
 # Local files
 local.properties
+
+# MCPE library
+libminecraftpe.so
